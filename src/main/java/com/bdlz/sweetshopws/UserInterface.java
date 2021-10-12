@@ -1,11 +1,12 @@
 package com.bdlz.sweetshopws;
 
 import java.util.List;
+import java.util.Set;
 
 public class UserInterface {
-    void print(List list) {
-        for (int i = 0; i < list.size(); i++ ) {
-            System.out.println(list.get(i));
-        }
+  public void print(Set<Sweet> set) {
+      for (Sweet sweet : set ){
+          System.out.println(sweet);
+      }
     }
 }

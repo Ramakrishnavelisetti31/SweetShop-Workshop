@@ -1,32 +1,31 @@
 package com.bdlz.sweetshopws;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class SweetRepository {
-    private List sweetList = new ArrayList();
 
-    public List getSweetList() {
+    private Set<Sweet> sweetList = new HashSet();
+
+    public Set getSweetList() {
         return sweetList;
     }
 
-    public void add(BundharLaddu bundharLaddu) {
-        sweetList.add(bundharLaddu);
+    public void add(Sweet sweet) {
+        sweetList.add(sweet);
     }
 
-    public void add(KakinadaKaja kakinadaKaja) {
-        sweetList.add(kakinadaKaja);
+    public void delete(BundharLaddu bundharLaddu) {
+        sweetList.remove(bundharLaddu);
     }
 
-    public void add(Jelibi jelibi) {
-        sweetList.add(jelibi);
+    public void delete(Kalakhand kalakhand) {
+        sweetList.remove(kalakhand);
     }
 
-    public void add(Kalakhand kalakhand) {
-        sweetList.add(kalakhand);
-    }
-
-    public void add(Putharekulu putharekulu) {
-        sweetList.add(putharekulu);
+    public void delete(KakinadaKaja kakinadaKaja) {
+        sweetList.remove(kakinadaKaja);
     }
 }
