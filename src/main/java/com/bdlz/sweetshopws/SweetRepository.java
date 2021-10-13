@@ -17,15 +17,9 @@ public class SweetRepository {
         sweetList.add(sweet);
     }
 
-    public void delete(BundharLaddu bundharLaddu) {
-        sweetList.remove(bundharLaddu);
+    public void delete(Sweet sweet) {
+        sweetList.remove(sweet);
     }
 
-    public void delete(Kalakhand kalakhand) {
-        sweetList.remove(kalakhand);
-    }
 
-    public void delete(KakinadaKaja kakinadaKaja) {
-        sweetList.remove(kakinadaKaja);
-    }
 }

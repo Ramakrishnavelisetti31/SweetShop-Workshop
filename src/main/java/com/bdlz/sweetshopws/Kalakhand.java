@@ -1,12 +1,10 @@
 package com.bdlz.sweetshopws;
 
-public class Kalakhand extends Sweet {
+public class Kalakhand extends Sweet implements INormalSweets {
 
     public Kalakhand() {
-
         name = "Kalakhand";
-        category = Category.SUGAR_LESS;
+        category = Category.GHEE;
         colour = Colour.WHITE;
-
     }
 }

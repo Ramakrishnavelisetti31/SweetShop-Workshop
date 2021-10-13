@@ -9,7 +9,7 @@ public class Application {
 
         System.out.println("Welcome to Sweet Shop Management program");
 
-        BundharLaddu bundharLaddu = new BundharLaddu();
+        Sweet bundharLaddu = new BundharLaddu();
         bundharLaddu.id = "Bl001";
         bundharLaddu.price = 20;
 
@@ -31,7 +31,7 @@ public class Application {
 
         Putharekulu putharekulu1 = new Putharekulu();
         putharekulu1.id = "p005";
-        putharekulu1.price = 50;
+        putharekulu1.price = 100;
 
         SweetRepository sweetRepository = new SweetRepository();
         sweetRepository.add(bundharLaddu);
@@ -43,16 +43,18 @@ public class Application {
 
 
         UserInterface userInterface = new UserInterface();
-        Set sweetList = sweetRepository.getSweetList();
+        Set sweetSet = sweetRepository.getSweetList();
 
-        userInterface.print(sweetList);
-
+        userInterface.print(sweetSet);
+        System.out.println("\nPrinting IDietSweet\n");
+        userInterface.printDietSweets(sweetSet);
+        System.out.println("\nPrinting INormalSweet\n");
+        userInterface.printNormalSweets(sweetSet);
         sweetRepository.delete(bundharLaddu);
         sweetRepository.delete(kalakhand);
         sweetRepository.delete(kakinadaKaja);
-        System.out.println("");
-        System.out.println("Printing after remove the sweet");
-        userInterface.print(sweetList);
+        System.out.println("\nPrinting after remove the sweet\n");
+        userInterface.print(sweetSet);
 
     }
 }

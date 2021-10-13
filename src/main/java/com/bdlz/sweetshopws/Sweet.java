@@ -2,7 +2,7 @@ package com.bdlz.sweetshopws;
 
 import java.util.Objects;
 
-public class Sweet {
+public abstract class Sweet {
     enum Colour {
         YELLOW, RED, WHITE, BROWN;
     }
@@ -32,7 +32,7 @@ public class Sweet {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Sweet sweet = (Sweet) o;
-        return  id.equals(sweet.id);
+        return id.equals(sweet.id);
     }
 
     @Override
