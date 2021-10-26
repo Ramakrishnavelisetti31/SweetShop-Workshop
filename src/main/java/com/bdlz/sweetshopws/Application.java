@@ -8,28 +8,27 @@ public class Application {
     public static void main(String[] args) {
 
         System.out.println("Welcome to Sweet Shop Management program");
-
         Sweet bundharLaddu = new BundharLaddu();
         bundharLaddu.id = "Bl001";
         bundharLaddu.price = 20;
 
-        KakinadaKaja kakinadaKaja = new KakinadaKaja();
+        Sweet kakinadaKaja = new KakinadaKaja();
         kakinadaKaja.id = "Kk002";
         kakinadaKaja.price= 25;
 
-        Jelibi jelibi = new Jelibi();
+        Sweet jelibi = new Jelibi();
         jelibi.id = "j003";
         jelibi.price = 15;
 
-        Kalakhand kalakhand = new Kalakhand();
+        Sweet kalakhand = new Kalakhand();
         kalakhand.id = "k004";
         kalakhand.price = 50;
 
-        Putharekulu putharekulu = new Putharekulu();
+        Sweet putharekulu = new Putharekulu();
         putharekulu.id = "p005";
         putharekulu.price = 100;
 
-        Putharekulu putharekulu1 = new Putharekulu();
+        Sweet putharekulu1 = new Putharekulu();
         putharekulu1.id = "p005";
         putharekulu1.price = 100;
 

@@ -1,6 +1,6 @@
 package com.bdlz.sweetshopws;
 
-public class Jelibi extends Sweet implements INormalSweets {
+public class Jelibi extends Sweet implements INormalSweets,IDietSweets {
 
     public Jelibi() {
         name = "Jelibi";

@@ -3,7 +3,7 @@ package com.bdlz.sweetshopws;
 import java.util.List;
 import java.util.Set;
 
-public class UserInterface {
+public class UserInterface implements IDietSweets, INormalSweets{
 
   public void print(Set<Sweet> set) {
       for (Sweet sweet : set ){
