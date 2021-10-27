@@ -4,8 +4,8 @@ import java.util.Set;
 
 public class Application {
 
-    SweetRepository sweetRepository = new SweetRepository();
-    UserInterface userInterface = new UserInterface();
+    SweetRepository sweetRepository = SweetRepository.getInstance();
+    UserInterface userInterface = UserInterface.getInstance();
 
     public void handleUserSelection(int choice) {
         Set sweetSet = sweetRepository.getSweetList();
@@ -33,6 +33,7 @@ public class Application {
                 break;
             default:
                 System.out.println("Enter correct choice");
+                break;
         }
     }
 
@@ -72,11 +73,14 @@ public class Application {
     public static void main(String[] args) {
 
         System.out.println("Welcome to Sweet Shop Management program");
-        int choice = 0;
         Application application = new Application();
-        while (choice != 7) {
-            choice = application.userInterface.showUserMenu();
-            application.handleUserSelection(choice);
+        while (true) {
+            int choice = application.userInterface.showUserMenu();
+            if (choice != 0) {
+                application.handleUserSelection(choice);
+            } else {
+                break;
+            }
         }
         System.out.println("Good Bye!......");
     }

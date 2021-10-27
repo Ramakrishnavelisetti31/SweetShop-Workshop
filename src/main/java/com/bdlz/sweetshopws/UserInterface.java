@@ -1,10 +1,20 @@
 package com.bdlz.sweetshopws;
 
-import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
 
 public class UserInterface {
+    private static UserInterface instance;
+    private UserInterface() {
+
+    }
+
+    public static synchronized UserInterface getInstance() {
+        if (instance == null) {
+            instance = new UserInterface();
+        }
+        return instance;
+    }
 
     public int showUserMenu() {
         System.out.println("Enter \n 1. To Add Sweets\n 2. To Remove Sweets\n 3. To Add Edit Sweets\n " +
