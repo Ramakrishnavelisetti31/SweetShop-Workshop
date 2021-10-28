@@ -8,7 +8,7 @@ public abstract class Sweet {
     }
 
     enum Category {
-        SUGAR, SUGAR_LESS, GHEE,JAGGERY;
+        SUGAR, SUGAR_LESS, GHEE, JAGGERY;
     }
     String name;
     Colour colour;

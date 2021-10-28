@@ -30,5 +30,12 @@ public class SweetRepository {
         sweetList.remove(sweet);
     }
 
-
+    public Sweet getSweet(String sweetName) {
+        for (Sweet sweet : sweetList) {
+            if (sweet.name.equalsIgnoreCase(sweetName)) {
+                return sweet;
+            }
+        }
+        return null;
+    }
 }

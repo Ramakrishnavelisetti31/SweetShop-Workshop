@@ -17,9 +17,9 @@ public class UserInterface {
     }
 
     public int showUserMenu() {
-        System.out.println("Enter \n 1. To Add Sweets\n 2. To Remove Sweets\n 3. To Add Edit Sweets\n " +
+        System.out.println("Enter \n 1. To Add Sweets\n 2. To Remove Sweets\n 3. To Edit Sweets\n " +
                       "4. To Print All Sweets\n 5. To Print Diet Sweets\n 6. To Print Normal Sweets\n " +
-                      "7. To Exit From Menu");
+                      "0. To Exit");
         Scanner scanner = new Scanner(System.in);
         int choice = scanner.nextInt();
         return choice;
