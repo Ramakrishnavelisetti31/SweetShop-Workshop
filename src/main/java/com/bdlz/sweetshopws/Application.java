@@ -36,46 +36,34 @@ public class Application {
         }
     }
 
-    public void addSweet() {
-        Sweet bundharLaddu = new BundharLaddu();
-        bundharLaddu.id = "Bl001";
-        bundharLaddu.price = 20;
-
-        Sweet kakinadaKaja = new KakinadaKaja();
-        kakinadaKaja.id = "Kk002";
-        kakinadaKaja.price = 25;
-
-        Sweet jelibi = new Jelibi();
-        jelibi.id = "j003";
-        jelibi.price = 15;
-
-        Sweet kalakhand = new Kalakhand();
-        kalakhand.id = "k004";
-        kalakhand.price = 50;
-
-        Sweet putharekulu = new Putharekulu();
-        putharekulu.id = "p005";
-        putharekulu.price = 100;
-
-        Sweet putharekulu1 = new Putharekulu();
-        putharekulu1.id = "p005";
-        putharekulu1.price = 100;
-
+    private void addSweet() {
+        Sweet sweet = new Sweet();
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter your Sweet name");
+        String sweetName = scanner.next();
+        sweet.name = sweetName;
+        System.out.println("Enter your Sweet colour");
+        setColor(sweet);
+        System.out.println("Enter your Sweet category");
+        setCategory(sweet);
+        System.out.println("Enter your Sweet price");
+        int price = scanner.nextInt();
+        sweet.price = price;
+        System.out.println("Enter your Sweet id");
+        String id = scanner.next();
+        sweet.id = id;
+        System.out.println("Enter sweet property");
+        setProperty(sweet);
         SweetRepository sweetRepository = SweetRepository.getInstance();
-        sweetRepository.add(bundharLaddu);
-        sweetRepository.add(kakinadaKaja);
-        sweetRepository.add(jelibi);
-        sweetRepository.add(kalakhand);
-        sweetRepository.add(putharekulu);
-        sweetRepository.add(putharekulu1);
+        sweetRepository.add(sweet);
     }
 
     public void editSweet() {
         SweetRepository sweetRepository = SweetRepository.getInstance();
         System.out.println("Enter which sweet you want to edit");
         Scanner scanner = new Scanner(System.in);
-        String editName = scanner.next();
-        Sweet sweet = sweetRepository.getSweet(editName);
+        String editSweetName = scanner.next();
+        Sweet sweet = sweetRepository.getSweet(editSweetName);
         System.out.println("Enter\n 1. To change Name\n 2. To change Colour\n " +
                 "3. To change Category\n 4. To change Price\n 5. To change Id");
         int edit = scanner.nextInt();
@@ -85,43 +73,9 @@ public class Application {
                 String newSweetName = scanner.next();
                 sweet.name = newSweetName;
             case 2:
-                System.out.println("Enter for colour \n 1. for YELLOW\n 2. for RED\n 3. for WHITE\n 4. for BROWN");
-                int colour = scanner.nextInt();
-                switch (colour) {
-                    case 1:
-                        sweet.colour = Sweet.Colour.YELLOW;
-                        break;
-                    case 2:
-                        sweet.colour = Sweet.Colour.RED;
-                        break;
-                    case 3:
-                        sweet.colour = Sweet.Colour.WHITE;
-                        break;
-                    case 4:
-                        sweet.colour = Sweet.Colour.BROWN;
-                        break;
-                    default:
-                        System.out.println("Entered incorrect choice, please enter correct choice!... ");
-                }
+                setColor(sweet);
             case 3:
-                System.out.println("Enter for category\n 1. for SUGAR\n 2. for SUGAR_LESS\n 3. for GHEE\n 4. for JAGGERY");
-                int category = scanner.nextInt();
-                switch (category) {
-                    case 1:
-                        sweet.category = Sweet.Category.GHEE;
-                        break;
-                    case 2:
-                        sweet.category = Sweet.Category.SUGAR_LESS;
-                        break;
-                    case 3:
-                        sweet.category = Sweet.Category.SUGAR;
-                        break;
-                    case 4:
-                        sweet.category = Sweet.Category.JAGGERY;
-                        break;
-                    default:
-                        System.out.println("Entered incorrect choice, please enter correct choice!... ");
-                }
+                setCategory(sweet);
             case 4:
                 System.out.println("Enter new Price");
                 int newPrice = scanner.nextInt();
@@ -141,9 +95,69 @@ public class Application {
         SweetRepository sweetRepository = SweetRepository.getInstance();
         System.out.println("Enter which sweet you want to delete");
         Scanner scanner = new Scanner(System.in);
-        String sweetName = scanner.next();
-        Sweet sweet = sweetRepository.getSweet(sweetName);
+        String deleteSweetName = scanner.next();
+        Sweet sweet = sweetRepository.getSweet(deleteSweetName);
         sweetRepository.delete(sweet);
+    }
+
+    public void setProperty(Sweet sweet) {
+        System.out.println("Enter for property\n 1. for DIET\n 2. for NORMAL");
+        Scanner scanner = new Scanner(System.in);
+        int property = scanner.nextInt();
+        switch (property) {
+            case 1:
+                sweet.propertyType = Sweet.PropertyType.DIET;
+                break;
+            case 2:
+                sweet.propertyType = Sweet.PropertyType.NORMAL;
+                break;
+            default:
+                System.out.println("Entered incorrect choice, please enter correct choice!... ");
+        }
+    }
+
+    public void setCategory(Sweet sweet) {
+        System.out.println("Enter for category\n 1. for SUGAR\n 2. for SUGAR_LESS\n 3. for GHEE\n 4. for JAGGERY");
+        Scanner scanner = new Scanner(System.in);
+        int category = scanner.nextInt();
+        switch (category) {
+            case 1:
+                sweet.category = Sweet.Category.SUGAR;
+                break;
+            case 2:
+                sweet.category = Sweet.Category.SUGAR_LESS;
+                break;
+            case 3:
+                sweet.category = Sweet.Category.GHEE;
+                break;
+            case 4:
+                sweet.category = Sweet.Category.JAGGERY;
+                break;
+            default:
+                System.out.println("Entered incorrect choice, please enter correct choice!... ");
+        }
+
+    }
+    public void setColor(Sweet sweet) {
+        System.out.println("Enter for colour \n 1. for YELLOW\n 2. for RED\n 3. for WHITE\n 4. for BROWN");
+        Scanner scanner = new Scanner(System.in);
+        int colour = scanner.nextInt();
+        switch (colour) {
+            case 1:
+                sweet.colour = Sweet.Colour.YELLOW;
+                break;
+            case 2:
+                sweet.colour = Sweet.Colour.RED;
+                break;
+            case 3:
+                sweet.colour = Sweet.Colour.WHITE;
+                break;
+            case 4:
+                sweet.colour = Sweet.Colour.BROWN;
+                break;
+            default:
+                System.out.println("Entered incorrect choice, please enter correct choice!... ");
+        }
     }
 
     public static void main(String[] args) {

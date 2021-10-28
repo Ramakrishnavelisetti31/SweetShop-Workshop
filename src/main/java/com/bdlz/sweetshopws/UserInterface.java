@@ -33,14 +33,14 @@ public class UserInterface {
 
     public void printDietSweets(Set<Sweet> set) {
         for (Sweet sweet : set ){
-            if (sweet instanceof IDietSweets) {
+            if (sweet.propertyType == Sweet.PropertyType.DIET) {
                 System.out.println(sweet);
             }
         }
     }
     public void printNormalSweets(Set<Sweet> set) {
         for (Sweet sweet : set ){
-            if (sweet instanceof INormalSweets) {
+            if (sweet.propertyType == Sweet.PropertyType.NORMAL) {
                 System.out.println(sweet);
             }
         }

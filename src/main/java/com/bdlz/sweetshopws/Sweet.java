@@ -2,7 +2,7 @@ package com.bdlz.sweetshopws;
 
 import java.util.Objects;
 
-public abstract class Sweet {
+public class Sweet {
     enum Colour {
         YELLOW, RED, WHITE, BROWN;
     }
@@ -10,9 +10,13 @@ public abstract class Sweet {
     enum Category {
         SUGAR, SUGAR_LESS, GHEE, JAGGERY;
     }
+    enum PropertyType {
+        DIET, NORMAL
+    }
     String name;
     Colour colour;
     Category category;
+    PropertyType propertyType;
     int price;
     String id;
 
@@ -22,6 +26,7 @@ public abstract class Sweet {
                 "name='" + name + '\'' +
                 ", colour=" + colour +
                 ", category=" + category +
+                ", propertyType=" + propertyType +
                 ", price=" + price +
                 ", id='" + id + '\'' +
                 '}';
